@@ -5,8 +5,18 @@
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
     {% for choice in question.choice_set.all %}
         <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
-        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}</label><br>
-    {% endfor %}
-</fieldset>
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}
+           </label>
+     <br>
+  {% endfor %}
+    <br>
+      
+<a href="{% url 'polls:choice' question.id %}">choice</a> <br><br>
+<a href="{% url 'polls:vote_reset' question.id %}">vote_reset</a> <br><br>
+
+
+</fieldset> 
+
+
 <input type="submit" value="Vote">
 </form>

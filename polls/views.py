@@ -119,3 +119,13 @@ def add_question(request):
             "polls:index",
         )
     )
+
+
+def Delete_record(request, question_id):
+    a = Question.objects.get(pk=question_id)
+    a.delete()
+    return redirect("polls:delate.html")
+
+
+def home(request):
+    return render(request, "base.html")

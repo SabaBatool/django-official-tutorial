@@ -1,7 +1,7 @@
 <form action="{% url 'polls:vote' question.id %}" method="post">
 {% csrf_token %}
 <fieldset>
-    <legend><h1>{{ question.question_text }}</h1></legend>
+    <legend><h1>{{ question.0question_text }}</h1></legend>
     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
     {% for choice in question.choice_set.all %}
         <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
@@ -13,6 +13,7 @@
       
 <a href="{% url 'polls:choice' question.id %}">choice</a> <br><br>
 <a href="{% url 'polls:vote_reset' question.id %}">vote_reset</a> <br><br>
+<a href="{% url 'polls:Delete_record' question.id %}">Delete_record</a> <br><br>
 
 
 </fieldset> 

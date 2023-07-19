@@ -1,0 +1,8 @@
+<form action="{% url 'polls:replace_question' %}" method="post">
+    {% csrf_token %}
+    <h1>You are replaceing a new question!</h1>
+    {% if error_message %}<p style="color: red"><strong>{{ error_message }}</strong></p>{% endif %}
+    <label for="question">Replace your question: </label>
+    <input type="text" value="" name="question">
+    <input type="submit" value="Replace" id="question">
+</form>

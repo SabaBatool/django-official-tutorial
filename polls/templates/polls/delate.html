@@ -1,0 +1,14 @@
+<form action="{% url 'polls:Removechoice' question.id %}" method="post">
+    {% csrf_token %}
+    <h1>You are removing a choice for: "{{ question.question_text }}"</h1>
+    <h2> Select a choice</h2>
+     {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {% for choice in question.choice_set.all %}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}">
+        <label for="choice{{ forloop.counter }}">{{ choice.choice_text }}
+           </label>
+     <br>
+  {% endfor %}
+  <br>
+  <input type="submit" value="Delete_record" id="Delete_record">
+</form>
